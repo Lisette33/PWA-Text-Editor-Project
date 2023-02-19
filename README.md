@@ -14,6 +14,7 @@ Lisette Morales
 The project represents a creation of an application that is a text editor. The application also follows Progressive Web Applications standards.
 
 ## Screenshot of Application
+
 ![Progressive Web Applications: Text Editor Project](https://user-images.githubusercontent.com/113862182/219975775-24ab2946-5cd2-43af-99fe-1572d628d0fe.png)
 
 ## Project Guidelines stated as:
