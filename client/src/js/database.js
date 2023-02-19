@@ -13,23 +13,21 @@ const initdb = async () =>
   });
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => console.error('putDb not implemented');
-
-// Export a function we will use to POST to the database.
-export const postDb = async (content) => {
+export const putDb = async (content) => {
+  // Export a function we will use to POST to the database.
   console.log('Post to the ase');
 
   // Create a connection to the database database and version we want to use.
-  const todosDb = await openDB('todos', 1);
+  const todosDb = await openDB('jate', 1);
 
   // Create a new transaction and specify the database and data privileges.
-  const tx = todosDb.transaction('todos', 'readwrite');
+  const tx = todosDb.transaction('jate', 'readwrite');
 
   // Open up the desired object store.
-  const store = tx.objectStore('todos');
+  const store = tx.objectStore('jate');
 
   // Use the .add() method on the store and pass in the content.
-  const request = store.add({ todo: content });
+  const request = store.add({ value: content, id:1 });
 
   // Get confirmation of the request.
   const result = await request;
@@ -37,7 +35,26 @@ export const postDb = async (content) => {
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+export const getDb = async () => {
+  console.log('GET from the database');
+
+  // Create a connection to the database database and version we want to use.
+  const todosDb = await openDB('jate', 1);
+
+   // Create a new transaction and specify the database and data privileges.
+  const tx = todosDb.transaction('jate', 'readonly');
+
+  // Open up the desired object store.
+  const store = tx.objectStore('jate');
+
+   // Use the .get() method to get a piece of data from the database based on the id.
+  const request = store.get(1);
+
+  // Get confirmation of the request.
+  const result = await request;
+  console.log('result.value', result);
+  return result;
+}
 
 // Export a function we will use to GET all from the database.
 export const getAllDb = async () => {
@@ -63,24 +80,7 @@ export const getAllDb = async () => {
 
 // Export a function we will use to GET from the database.
 export const getOneDb = async (id) => {
-  console.log('GET from the database');
-
-  // Create a connection to the database database and version we want to use.
-  const todosDb = await openDB('todos', 1);
-
-   // Create a new transaction and specify the database and data privileges.
-  const tx = todosDb.transaction('todos', 'readonly');
-
-  // Open up the desired object store.
-  const store = tx.objectStore('todos');
-
-   // Use the .get() method to get a piece of data from the database based on the id.
-  const request = store.get(id);
-
-  // Get confirmation of the request.
-  const result = await request;
-  console.log('result.value', result);
-  return result;
+  
 };
 
 initdb();
