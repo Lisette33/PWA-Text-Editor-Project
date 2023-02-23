@@ -6,7 +6,7 @@ Lisette Morales
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Deploment URL: 
+## Deploment URL:
 https://gentle-ravine-68181.herokuapp.com/ 
 
 ## Description
